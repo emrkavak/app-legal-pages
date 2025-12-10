@@ -10,12 +10,14 @@
 <body>
     <header>
         <div class="nav-inner">
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span class="hamburger"></span></button>
             <div class="logo"><span class="badge">UD</span>UAV DroneCast Assist</div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="privacy-policy.html">Privacy Policy</a></li>
                     <li><a href="terms-of-use.html">Terms of Use</a></li>
+                    <li><a href="admob.html">AdMob / app-ads.txt</a></li>
                 </ul>
             </nav>
         </div>
@@ -67,5 +69,21 @@ For questions or support, please contact:
     <footer>
         <p>&copy; 2025 UAV DroneCast Assist. All rights reserved.</p>
     </footer>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const toggle = document.querySelector('.nav-toggle');
+                const nav = document.querySelector('.nav-inner nav');
+                toggle?.addEventListener('click', () => {
+                    const open = nav.classList.toggle('open');
+                    toggle.setAttribute('aria-expanded', open);
+                });
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.nav-inner') && nav.classList.contains('open')) {
+                        nav.classList.remove('open');
+                        toggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+        </script>
 </body>
 </html>

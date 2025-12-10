@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AdMob - app-ads.txt</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span class="hamburger"></span></button>
+      <div class="logo"><span class="badge">UD</span>UAV DroneCast Assist</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
+          <li><a href="admob.html">AdMob / app-ads.txt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="card">
+      <h2>AdMob: app-ads.txt</h2>
+      <p class="muted">This page hosts the <code>app-ads.txt</code> content for AdMob/Ad exchange verification. Uploading the file to the root of your domain helps authorized sellers display ads for your app.</p>
+
+      <h3>What is <code>app-ads.txt</code>?</h3>
+      <p class="muted">An <code>app-ads.txt</code> is a plain text file that indicates which ad networks may sell ads for your apps. Google AdMob recommends you host <code>app-ads.txt</code> at the root of your developer domain.</p>
+
+      <h3>Current file (repo root)</h3>
+      <p class="muted">You can view or download the current <code>app-ads.txt</code> using the button below. When you provide the content, I'll update the file accordingly.</p>
+
+      <div style="margin-top:0.75rem;display:flex;gap:.5rem;align-items:center;">
+        <a class="btn btn--primary" href="/app-ads.txt" download>Download app-ads.txt</a>
+        <a class="btn btn--ghost" id="previewBtn">Preview</a>
+      </div>
+
+      <h3 style="margin-top:1rem;">Edit (client-side only)</h3>
+      <p class="muted">This editor lets you prepare the contents and download a file locally. To make the file available on the site, provide the final content to me and I'll commit it to the repo.</p>
+
+      <textarea id="editor" style="width:100%;height:160px;padding:12px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);">google.com, pub-2180329266610702, DIRECT, f08c47fec0942fa0
+    </textarea>
+
+      <div class="cta-row" style="margin-top:8px;">
+        <a id="downloadBtn" class="btn btn--primary" download="app-ads.txt">Download prepared app-ads.txt</a>
+        <button id="loadBtn" class="btn btn--ghost">Load current file preview</button>
+      </div>
+
+    </section>
+    <section class="card" style="margin-top:1rem;">
+      <h3>Note</h3>
+      <p class="muted">After you give the final content, I'll add it to the root <code>app-ads.txt</code> file so it is served from <code>https://[your-domain]/app-ads.txt</code>. For GitHub Pages the URL will be <code>https://emrkavak.github.io/app-legal-pages/app-ads.txt</code>. If you need help with the content format, paste it here and I'll validate it.</p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 UAV DroneCast Assist. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Download file from editor content
+    const downloadBtn = document.getElementById('downloadBtn');
+    const editor = document.getElementById('editor');
+    const previewBtn = document.getElementById('previewBtn');
+    const loadBtn = document.getElementById('loadBtn');
+
+    downloadBtn.addEventListener('click', (e) => {
+      const blob = new Blob([editor.value], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      downloadBtn.href = url;
+    });
+
+    previewBtn.addEventListener('click', async () => {
+      try {
+        const res = await fetch('/app-ads.txt');
+        if (!res.ok) throw new Error('File not found');
+        const text = await res.text();
+        alert('app-ads.txt preview:\n\n' + text);
+      } catch (err) {
+        alert('Could not load app-ads.txt from server. ' + err.message);
+      }
+    });
+
+    loadBtn.addEventListener('click', async () => {
+      try {
+        const res = await fetch('/app-ads.txt');
+        if (!res.ok) throw new Error('File not found');
+        const text = await res.text();
+        editor.value = text;
+      } catch (err) {
+        alert('Could not load app-ads.txt from server. ' + err.message);
+      }
+    });
+
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('.nav-inner nav');
+      toggle?.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+      });
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-inner') && nav.classList.contains('open')) {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+google.com, pub-2180329266610702, DIRECT, f08c47fec0942fa0
+# Placeholder app-ads.txt
+# Replace these lines with actual AdMob/App-ads entries in the format:
+# <ad_network_domain>, <publisher_id>, DIRECT/RESELLER, <cert_authority_id>
+
+# Example:
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

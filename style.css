@@ -65,6 +65,20 @@ code { background: rgba(15,23,42,0.04); padding: 0.15rem 0.35rem; border-radius:
   nav ul { gap: 0.25rem; }
 }
 
+/* Mobile nav toggle */
+.nav-toggle { display: none; background: transparent; border: none; cursor: pointer; }
+.nav-toggle .hamburger { width: 20px; height: 2px; background: var(--primary); display: block; position: relative; }
+.nav-toggle .hamburger::before, .nav-toggle .hamburger::after { content: ''; width: 20px; height: 2px; background: var(--primary); display: block; position: absolute; left: 0; }
+.nav-toggle .hamburger::before { top: -6px; }
+.nav-toggle .hamburger::after { top: 6px; }
+
+@media (max-width: 720px) {
+    .nav-toggle { display: inline-flex; align-items:center; justify-content:center; }
+    nav { position: absolute; right: 1rem; top: 64px; background: var(--card); padding: 1rem; border-radius: 12px; box-shadow: 0 12px 32px rgba(2,6,23,0.12); display: none; min-width: 220px; }
+    nav.open { display: block; }
+    nav ul { flex-direction: column; gap: .5rem; }
+}
+
 /* Utility */
 .muted { color: var(--muted) }
 
