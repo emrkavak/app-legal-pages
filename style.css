@@ -1,3 +1,76 @@
+/* Modern styling for UAV DroneCast Assist legal pages */
+:root {
+  --bg-start: #f7f8fc;
+  --bg-end: #ffffff;
+  --primary: #4f46e5; /* indigo */
+  --accent: #06b6d4; /* teal */
+  --muted: #64748b;
+  --card: #ffffff;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background: linear-gradient(160deg, var(--bg-start), var(--bg-end));
+  color: #0f172a;
+}
+
+/* Header */
+header { position: sticky; top: 0; background: transparent; z-index: 40; padding: 1rem 1rem; }
+.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.logo { display: flex; align-items: center; gap: .75rem; font-weight: 700; color: var(--primary); font-size: 1.125rem; }
+.logo .badge { width: 38px; height: 38px; display: inline-flex; align-items:center; justify-content:center; background: linear-gradient(90deg,var(--primary),#60a5fa); color: white; border-radius: 10px; font-weight: 700; }
+
+/* Navigation */
+nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 0.5rem; align-items: center; }
+nav li { display: inline-block; }
+nav a { text-decoration: none; color: var(--muted); padding: .5rem .75rem; border-radius: 8px; transition: all .16s ease-in-out; font-weight: 600; }
+nav a:hover { color: #0f172a; background: rgba(79,70,229,0.08); }
+
+/* Layout */
+main { padding: 2.5rem 1rem; max-width: 1100px; margin: 1.5rem auto 3rem auto; }
+.card { background: var(--card); border-radius: var(--radius); padding: 1.5rem; box-shadow: 0 8px 30px rgba(15,23,42,0.06); }
+
+/* Hero */
+.hero { padding: 2rem; border-radius: 14px; background: linear-gradient(180deg, rgba(79,70,229,0.06), rgba(6,182,212,0.02)); display:grid; gap: .75rem; }
+.hero h1 { font-size: 2.2rem; margin: 0; color: var(--primary); }
+.hero p { margin: 0; color: var(--muted); }
+.cta-row { margin-top: 1rem; display:flex; gap:.5rem; }
+.btn { padding: .6rem 1rem; border-radius: 10px; border: none; cursor: pointer; text-decoration: none; display:inline-flex; align-items:center; gap:.5rem; }
+.btn--primary { background: linear-gradient(90deg,var(--primary),#60a5fa); color: white; font-weight: 700; box-shadow: 0 6px 18px rgba(79,70,229,0.18); }
+.btn--ghost { background: transparent; color: var(--primary); border: 1px solid rgba(79,70,229,0.12); font-weight:700 }
+
+/* Content typography */
+h1,h2 { font-weight: 700; margin-bottom: .5rem; }
+h2 { color: var(--primary); }
+p { color: #0f172a; }
+section pre { background: #f8fafc; border-radius: 8px; padding: 1rem; font-size: 0.95rem; white-space: pre-wrap; word-break: break-word; box-shadow: 0 6px 18px rgba(15,23,42,0.03); }
+
+/* Footer */
+footer { color: var(--muted); text-align: center; padding: 2rem 1rem; border-top: 1px solid rgba(2,6,23,0.04); }
+
+/* Tables, lists and other small tweaks */
+ol, ul { margin-left: 1.25rem; color: var(--muted); }
+code { background: rgba(15,23,42,0.04); padding: 0.15rem 0.35rem; border-radius: 6px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace; }
+
+/* Responsive */
+@media (max-width: 720px) {
+  .hero h1 { font-size: 1.5rem }
+  main { padding: 1rem; }
+  .nav-inner { padding: 0 1rem; }
+  nav ul { gap: 0.25rem; }
+}
+
+/* Utility */
+.muted { color: var(--muted) }
+
+/* small logo helper style */
+.brand-sub { color: var(--muted); font-weight: 600; font-size: .9rem }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;

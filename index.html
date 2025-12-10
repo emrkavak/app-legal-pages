@@ -5,22 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legal Pages</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Legal Pages</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="terms-of-use.html">Terms of Use</a></li>
-            </ul>
-        </nav>
+        <div class="nav-inner">
+            <div class="logo"><span class="badge">UD</span>UAV DroneCast Assist</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-use.html">Terms of Use</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <main>
-        <section>
-            <h2>Welcome</h2>
-            <p>This is the legal pages for our app. Please review our Privacy Policy and Terms of Use.</p>
+        <section class="hero card">
+            <h1>UAV DroneCast Assist</h1>
+            <p class="muted">Legal pages for the UAV DroneCast Assist app. Review our Privacy Policy and Terms of Use below.</p>
+            <div class="cta-row">
+                <a class="btn btn--primary" href="privacy-policy.html">Privacy Policy</a>
+                <a class="btn btn--ghost" href="terms-of-use.html">Terms of Use</a>
+            </div>
+        </section>
+        <section class="card" style="margin-top:1rem;">
+            <h2>About these pages</h2>
+            <p class="muted">These pages contain our Privacy Policy and Terms of Use. They are designed to be referenced from app stores or from within the app.</p>
         </section>
     </main>
     <footer>
